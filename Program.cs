@@ -186,9 +186,10 @@ void HARDex1()
     r2 = Math.Round(Math.Sqrt(x2*x2 +y2*y2),2);
     r3 = Math.Round(Math.Sqrt(x3*x3 +y3*y3),2);
     
-    Console.WriteLine($"Раиус-вектор точки А ({r1})");
-    Console.WriteLine($"Раиус-вектор точки B ({r2})");
-    Console.WriteLine($"Раиус-вектор точки C ({r3})");
+    //Console.WriteLine($"Раиус-вектор точки А ({r1})");
+    //Console.WriteLine($"Раиус-вектор точки B ({r2})");
+    //Console.WriteLine($"Раиус-вектор точки C ({r3})");
+
     //Нахождение и вывод оптимального маршрута
     double maxR;
     double midR =0;
@@ -217,9 +218,9 @@ void HARDex1()
     else if (minR==r3 && maxR==r1) midR = r2;
     else if (minR==r3 && maxR==r2) midR = r1;
 
-    Console.WriteLine($"Ближняя точка {minR}");
-    Console.WriteLine($"Средняя точка {midR}");
-    Console.WriteLine($"Дальняя точка {maxR}");
+    //Console.WriteLine($"Ближняя точка {minR}");
+    //Console.WriteLine($"Средняя точка {midR}");
+    //Console.WriteLine($"Дальняя точка {maxR}");
 
     double minX = 0;
     double minY = 0;
@@ -286,7 +287,10 @@ void HARDex1()
     maxY = y2;
     }
 
-    Console.WriteLine($"Маршрут должен проходить по точкам:1.({minX},{minY})  2.({midX},{midY})  3.({maxX},{maxY})");
+    double dist = Math.Round(Math.Sqrt(Math.Pow(minX, 2) + Math.Pow(minY, 2))+Math.Sqrt(Math.Pow(midX-minX, 2) + Math.Pow(midY-minY, 2))+Math.Sqrt(Math.Pow(maxX-midX, 2) + Math.Pow(maxY-midY, 2)),2);
+
+    Console.WriteLine($"Маршрут должен проходить по точкам:  1.({minX},{minY})  2.({midX},{midY})  3.({maxX},{maxY})");
+    Console.WriteLine($"Общее расстояние маршрута:  {dist}");
 }
 
 HARDex1();
